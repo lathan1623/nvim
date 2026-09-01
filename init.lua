@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end
 	end,
 })
+vim.cmd("syntax enable")
 vim.cmd("set completeopt+=noselect")
 vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<Tab>"', {
 	expr = true, noremap = true, silent = true
@@ -54,11 +55,11 @@ vim.keymap.set('n', '<leader>pf', ":Pick files<CR>")
 vim.keymap.set('n', '<leader>h', ":Pick help<CR>")
 vim.keymap.set('n', '<leader>e', ":Oil<CR>")
 
-vim.lsp.enable({ "lua_ls", "jdtls", "rust_analyzer", "ts_ls" })
+vim.lsp.enable({ "clangd", "lua_ls", "jls", "rust_analyzer", "ts_ls" })
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
 
 vim.o.termguicolors = true
-vim.cmd("colorscheme minispring")
+vim.cmd("colorscheme miniautumn")
 vim.cmd(":hi statusline guibg=NONE")
